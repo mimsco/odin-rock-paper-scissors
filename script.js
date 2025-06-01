@@ -1,5 +1,6 @@
 'use strict'
 
+// Creates and stores random computer choice
 const getComputerChoice = function () {
   const randomNumber = Math.floor(Math.random() * 3);
   let computerChoice;
@@ -17,14 +18,18 @@ const getComputerChoice = function () {
   return computerChoice;
 }
 
+// Prompts human choice
 const getHumanChoice = function () {
   return prompt('Please type rock, paper or scissors').toLowerCase();
 }
 
+
+// Logic to play game of 5 rounds
 function playGame () {
   let humanScore = 0;
   let computerScore = 0;
 
+  // Single round logic
   function playRound(humanChoice, computerChoice) {
     if (humanChoice === computerChoice) {
       console.log(`It's a draw! Play again.`);
@@ -37,6 +42,7 @@ function playGame () {
     }
   }
 
+  // Loops single round 5 times
   for (let i = 0; i < 5; i++) {
     playRound(getHumanChoice(), getComputerChoice());
     console.log(`Human score: ${humanScore} and Computer score: ${computerScore}`);
